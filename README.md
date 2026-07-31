@@ -7,6 +7,8 @@ A regulated 3.3V/1A DC power supply built from a 12V AC input, designed, simulat
 
 **Team:** Neil Chohan, Taj Vass, Rodrigo Collioni Ribeiro
 
+![Final assembled PCB](images/final_pcb_assembled_angled.jpg)
+
 ## Overview
 
 This project converts a 12V AC input into a stable, low-ripple 3.3V DC output capable of delivering up to 1A, using a buck (step-down) converter topology controlled by an **LM3524 PWM controller**. The design covers the full power path — rectification, filtering, PWM switching, and closed-loop feedback regulation.
@@ -21,6 +23,12 @@ This project converts a 12V AC input into a stable, low-ripple 3.3V DC output ca
 | Switching frequency | 100 kHz | ~105 kHz (sim) / 100–110 kHz (measured) |
 | Output voltage | 3.3 V | 3.1–3.3 V across all load conditions |
 | Rectifier ripple | < 30% | 6.9% |
+
+![Oscilloscope: regulated output voltage, ~3.28V average](images/oscilloscope_output_voltage.jpg)
+*Measured output voltage — stable at ~3.28V average, matching the simulated and target 3.3V within tolerance.*
+
+![Oscilloscope: switching waveform at the PWM node, ~106.6kHz](images/oscilloscope_switching_ripple.jpg)
+*Switching waveform captured at the PWM node — measured frequency of 106.59kHz, closely matching the 100kHz design target.*
 
 ## How It Works
 
@@ -40,6 +48,20 @@ Simulation (Multisim) and hardware measurements (Keysight oscilloscope) were com
 
 The design was carried through to a fully routed PCB in Altium Designer. The final board passed Design Rule Check with **0 warnings and 0 rule violations**, confirming clean routing, correct clearances, and no unresolved electrical issues before assembly.
 
+![PCB copper layer layout](images/pcb_layout_top_copper.png)
+*Top copper layer routing — full board layout including rectifier, PWM controller, MOSFET switching stage, and output filter.*
+
+![PCB routing overlay](images/pcb_layout_routing_overlay.png)
+*Routing overlay highlighting key signal traces across the board.*
+
+## Hardware Assembly & Testing
+
+![Assembled board, top view](images/final_pcb_top_view.jpg)
+*Fully assembled and soldered PCB.*
+
+![Bench testing with multimeter](images/hardware_testing_multimeter.jpg)
+*Component-level testing during assembly and debugging.*
+
 ## Repository Contents
 
 - `DesignProject/BuckConverterSchematic.SchDoc` — Altium schematic
@@ -55,9 +77,6 @@ Altium Designer (schematic capture, PCB layout, DRC), Multisim (circuit simulati
 
 ## Datasheets Referenced
 
-- Texas Instruments — LM3524D PWM Controller
-- International Rectifier — IRF9540N HEXFET MOSFET
-- Vishay — UF4004 Ultrafast Rectifier
 - Texas Instruments — LM3524D PWM Controller
 - International Rectifier — IRF9540N HEXFET MOSFET
 - Vishay — UF4004 Ultrafast Rectifier
