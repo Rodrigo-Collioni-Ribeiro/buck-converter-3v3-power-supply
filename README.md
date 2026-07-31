@@ -1,6 +1,3 @@
-# buck-converter-3v3-power-supply
-3.3V/1A buck converter power supply — LM3524 PWM controller design and validation.
-
 # 3.3V Buck Converter Power Supply
 
 A regulated 3.3V/1A DC power supply built from a 12V AC input, designed, simulated, and validated on hardware as part of RMIT's Engineering Design 2 course.
