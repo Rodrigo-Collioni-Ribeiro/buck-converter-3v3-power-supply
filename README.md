@@ -36,19 +36,28 @@ Component values were calculated from datasheet equations and iteratively refine
 
 Simulation (Multisim) and hardware measurements (Keysight oscilloscope) were compared at three load conditions — light (50 mA), medium (330 mA), and rated (1A) — to confirm the regulator held a stable output across the full operating range.
 
+## PCB Layout
+
+The design was carried through to a fully routed PCB in Altium Designer. The final board passed Design Rule Check with **0 warnings and 0 rule violations**, confirming clean routing, correct clearances, and no unresolved electrical issues before assembly.
+
 ## Repository Contents
 
-- `/schematics` — Multisim circuit schematics
-- `/calculations` — Component value derivations (oscillator timing, feedback dividers, filter capacitors, gate drive network)
-- `/results` — Simulation waveforms and oscilloscope captures
+- `DesignProject/BuckConverterSchematic.SchDoc` — Altium schematic
+- `DesignProject/ProjectPCB.PcbDoc` — Routed PCB layout
+- `DesignProject/*.PcbLib`, `*.SchLib` — Component footprint and symbol libraries used in the design
+- `DesignProject/Project Outputs for DesignProject/Design Rule Check - ProjectPCB.html` — DRC report (0 warnings, 0 violations)
+- `DesignProject/project_sim_config.simcfg`, `LM3524.ckt` — Simulation configuration
 - `Design_Report.pdf` — Full write-up with detailed calculations and experimental analysis
 
 ## Tools Used
 
-Multisim (simulation), Keysight oscilloscope (hardware validation), PCB design and assembly.
+Altium Designer (schematic capture, PCB layout, DRC), Multisim (circuit simulation), Keysight oscilloscope (hardware validation), PCB assembly and testing.
 
 ## Datasheets Referenced
 
+- Texas Instruments — LM3524D PWM Controller
+- International Rectifier — IRF9540N HEXFET MOSFET
+- Vishay — UF4004 Ultrafast Rectifier
 - Texas Instruments — LM3524D PWM Controller
 - International Rectifier — IRF9540N HEXFET MOSFET
 - Vishay — UF4004 Ultrafast Rectifier
